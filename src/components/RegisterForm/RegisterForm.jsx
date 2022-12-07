@@ -1,17 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from 'redux/phonebook/selectors';
-import { addContact } from 'redux/phonebook/operations';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import {
-  Field,
-  Form,
-  Input,
-  Label,
-  Submit,
-} from 'components/ContactsForm/ContactsForm.styled';
+  FormRegister,
+  RegisterField,
+  RegisterLabel,
+  RegisterInput,
+  RegisterSubmit,
+} from './RegisterForm.styled';
 
 export const RegisterForm = () => {
-  const users = useSelector(selectContacts);
-
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -28,15 +25,15 @@ export const RegisterForm = () => {
       password: password.value,
     };
 
-    dispatch(addContact(newUser));
+    dispatch(register(newUser));
     form.reset();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field>
-        <Label>Username</Label>
-        <Input
+    <FormRegister onSubmit={handleSubmit}>
+      <RegisterField>
+        <RegisterLabel>Username</RegisterLabel>
+        <RegisterInput
           type="text"
           name="name"
           placeholder="Enter your name..."
@@ -44,30 +41,28 @@ export const RegisterForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Field>
-      <Field>
-        <Label>Email</Label>
-        <Input
+      </RegisterField>
+      <RegisterField>
+        <RegisterLabel>Email</RegisterLabel>
+        <RegisterInput
           type="email"
           name="email"
           placeholder="Enter your email..."
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Email must consist of numbers or letters and @. Example, user@mail.com"
+          title="Email must consist of your personal info,@ symbol and domain. Example, personal_info@domain"
           required
         />
-      </Field>
-      <Field>
-        <Label>Password</Label>
-        <Input
+      </RegisterField>
+      <RegisterField>
+        <RegisterLabel>Password</RegisterLabel>
+        <RegisterInput
           type="password"
           name="password"
           placeholder="Enter your password..."
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Password must consist of numbers and letters and can't contain spaces and start with +"
+          title="Password must consist of numbers and letters"
           required
         />
-      </Field>
-      <Submit type="submit">Sing up</Submit>
-    </Form>
+      </RegisterField>
+      <RegisterSubmit type="submit">Sing up</RegisterSubmit>
+    </FormRegister>
   );
 };

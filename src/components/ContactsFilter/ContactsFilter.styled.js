@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Field, Label, Input } from '../ContactsForm/ContactsForm.styled';
+import { Field, Label, Input } from '../base/Form.styled';
 
 const FieldFilter = styled(Field)``;
 

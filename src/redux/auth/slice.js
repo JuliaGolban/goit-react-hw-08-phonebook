@@ -1,50 +1,57 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './operations';
+import { register, logIn, logOut, refreshUser } from './operations';
 
-const handleFetchContacts = (state, action) => {
-  state.items = action.payload;
+const handleCreateUser = (state, action) => {
+  state.user = action.payload.user;
+  state.token = action.payload.token;
+  state.isLoggedIn = true;
 };
 
-const handleAddContacts = (state, action) => {
-  state.items.push(action.payload);
+const handleResetUser = state => {
+  state.user = { name: null, email: null };
+  state.token = null;
+  state.isLoggedIn = false;
 };
 
-const handleDeleteContacts = (state, action) => {
-  const idx = state.items.findIndex(({ id }) => id === action.payload.id);
-  state.items.splice(idx, 1);
+const handleRefreshUser = (state, action) => {
+  state.user = action.payload;
+  state.isLoggedIn = true;
+  state.isRefreshing = false;
 };
 
-const actions = [fetchContacts, addContact, deleteContact];
+const actions = [register, logIn, logOut, refreshUser];
 
-const contactsSlice = createSlice({
-  name: 'contacts',
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+const initialState = {
+  user: { name: null, email: null },
+  token: null,
+  isLoggedIn: false,
+  isRefreshing: false,
+  error: null,
+};
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
   extraReducers: builder =>
     builder
-      .addCase(fetchContacts.fulfilled, handleFetchContacts)
-      .addCase(addContact.fulfilled, handleAddContacts)
-      .addCase(deleteContact.fulfilled, handleDeleteContacts)
-      .addMatcher(
-        isAnyOf(...actions.map(action => action.fulfilled)),
-        state => {
-          state.isLoading = false;
-          state.error = null;
-        }
-      )
-      .addMatcher(isAnyOf(...actions.map(action => action.pending)), state => {
-        state.isLoading = true;
+      .addCase(register.fulfilled, handleCreateUser)
+      .addCase(logIn.fulfilled, handleCreateUser)
+      .addCase(logOut.fulfilled, handleResetUser)
+
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
       })
+      .addCase(refreshUser.fulfilled, handleRefreshUser)
+      .addCase(refreshUser.rejected, state => {
+        state.isRefreshing = false;
+      })
+      // Rejected from all cases
       .addMatcher(
         isAnyOf(...actions.map(action => action.rejected)),
         (state, action) => {
-          state.isLoading = false;
           state.error = action.payload;
         }
       ),
 });
 
-export const contactsReducer = contactsSlice.reducer;
+export const authReducer = authSlice.reducer;

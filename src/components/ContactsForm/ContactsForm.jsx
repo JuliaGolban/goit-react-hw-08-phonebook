@@ -1,10 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from 'redux/phonebook/selectors';
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { useContacts } from 'hooks/useContacts';
 import { addContact } from 'redux/phonebook/operations';
-import { Form, Field, Label, Input, Submit } from './ContactsForm.styled';
+import {
+  ContactsForm,
+  ContactsField,
+  ContactsLabel,
+  ContactsInput,
+  ContactsSubmit,
+} from './ContactsForm.styled';
 
 export const ContactForm = () => {
-  const contacts = useSelector(selectContacts);
+  const { contacts } = useContacts();
 
   const dispatch = useDispatch();
 
@@ -25,7 +32,20 @@ export const ContactForm = () => {
       ({ name }) => name.toLowerCase() === normalizedName
     );
     if (isExist) {
-      return alert(`${name.value} is already in contacts`);
+      // return alert(`${name.value} is already in contacts`);
+      return toast(t => (
+        <span>
+          <b>{name.value}</b> is already in contacts &nbsp;
+          <button
+            onClick={() => {
+              form.reset();
+              toast.dismiss(t.id);
+            }}
+          >
+            Reset
+          </button>
+        </span>
+      ));
     }
 
     dispatch(addContact(newContact));
@@ -33,10 +53,10 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field>
-        <Label>Name</Label>
-        <Input
+    <ContactsForm onSubmit={handleSubmit}>
+      <ContactsField>
+        <ContactsLabel>Name</ContactsLabel>
+        <ContactsInput
           type="text"
           name="name"
           placeholder="Enter name..."
@@ -44,10 +64,10 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </Field>
-      <Field>
-        <Label>Number</Label>
-        <Input
+      </ContactsField>
+      <ContactsField>
+        <ContactsLabel>Number</ContactsLabel>
+        <ContactsInput
           type="tel"
           name="number"
           placeholder="Enter phone number..."
@@ -55,8 +75,8 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </Field>
-      <Submit type="submit">Add contact</Submit>
-    </Form>
+      </ContactsField>
+      <ContactsSubmit type="submit">Add contact</ContactsSubmit>
+    </ContactsForm>
   );
 };

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 const Box = styled.div`
   display: flex;
@@ -10,11 +9,28 @@ const Box = styled.div`
 const Text = styled.p`
   font-size: 16px;
   font-weight: 500;
+  color: rgb(9 9 121);
 `;
 
 const LogOutBtn = styled.button`
   padding: 3px 5px;
-  font-size: 14px;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  color: rgb(255 255 255);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  :hover,
+  :focus {
+    color: rgb(9 9 121);
+  }
 `;
 
 export { Box, Text, LogOutBtn };

@@ -1,18 +1,12 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectIsLoading,
-  selectError,
-  selectVisibleContacts,
-} from 'redux/phonebook/selectors';
+import { useDispatch } from 'react-redux';
+import { useContacts } from 'hooks/useContacts';
 import { fetchContacts } from 'redux/phonebook/operations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { List, Notify } from './ContactsList.styled';
 
 export const ContactList = () => {
-  const contacts = useSelector(selectVisibleContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const { contacts, isLoading, error } = useContacts();
 
   const dispatch = useDispatch();
 

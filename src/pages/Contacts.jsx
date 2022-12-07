@@ -7,12 +7,15 @@ import {
   Title,
 } from '../components/base/CommonStyle.styled';
 
-const ContactsPage = () => {
+const Contacts = () => {
   return (
     <main>
       <Section>
+        <Title as="h1" hidden>
+          Phonebook
+        </Title>
         <Container>
-          <Title as="h1">Phonebook</Title>
+          <Title as="h2">New contact</Title>
           <ContactForm />
         </Container>
       </Section>
@@ -27,4 +30,4 @@ const ContactsPage = () => {
   );
 };
 
-export default ContactsPage;
+export default Contacts;

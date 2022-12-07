@@ -24,12 +24,15 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   padding-top: 30px;
+  margin: ${props => props.margin || '0'};
 `;
 
 const Title = styled.h1`
-  margin-bottom: 20px;
-  font-size: 20px;
+  margin: ${props => props.margin || '0 0 20px 0'};
+  text-align: ${props => props.position || 'start-left'};
+  font-size: ${props => props.size || '18px'};
   font-weight: 700;
+  line-height: 1.33;
   color: rgb(9 9 121);
 `;
 

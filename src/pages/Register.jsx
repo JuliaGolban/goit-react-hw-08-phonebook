@@ -1,7 +1,7 @@
 import { Container, Section, Title } from 'components/base/CommonStyle.styled';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
-const RegisterPage = () => {
+const Register = () => {
   return (
     <Section>
       <Container>
@@ -12,4 +12,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default Register;

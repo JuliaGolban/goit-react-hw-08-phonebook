@@ -1,21 +1,27 @@
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { useAuth } from 'hooks/useAuth';
 import { Container } from 'components/base/CommonStyle.styled';
-// import { UserMenu } from 'components/UserMenu/UserMenu';
 import { Header, PageNav, AuthNav, StyledNavLink } from './AppBar.styled';
 
 export const AppBar = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <Header id="header">
       <Container>
         <PageNav>
           <StyledNavLink to="/">Home</StyledNavLink>
-          <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+          {isLoggedIn && <StyledNavLink to="/contacts">Contacts</StyledNavLink>}
         </PageNav>
-        <AuthNav>
-          <StyledNavLink to="/register">Register</StyledNavLink>
-          <StyledNavLink to="/login">Login</StyledNavLink>
-        </AuthNav>
 
-        {/* <UserMenu /> */}
+        {isLoggedIn ? (
+          <UserMenu />
+        ) : (
+          <AuthNav>
+            <StyledNavLink to="/register">Register</StyledNavLink>
+            <StyledNavLink to="/login">Log in</StyledNavLink>
+          </AuthNav>
+        )}
       </Container>
     </Header>
   );

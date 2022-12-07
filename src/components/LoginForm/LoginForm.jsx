@@ -1,17 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from 'redux/phonebook/selectors';
-import { addContact } from 'redux/phonebook/operations';
+import { useDispatch } from 'react-redux';
+import { logIn } from 'redux/auth/operations';
 import {
-  Field,
-  Form,
-  Input,
-  Label,
-  Submit,
-} from 'components/ContactsForm/ContactsForm.styled';
+  FormLogin,
+  LoginField,
+  LoginLabel,
+  LoginInput,
+  LoginSubmit,
+} from './LoginForm.styled';
 
 export const LoginForm = () => {
-  const users = useSelector(selectContacts);
-
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -21,39 +18,37 @@ export const LoginForm = () => {
     const email = form.elements.email;
     const password = form.elements.password;
 
-    const newContact = {
+    const user = {
       email: email.value,
       password: password.value,
     };
 
-    dispatch(addContact(newContact));
+    dispatch(logIn(user));
     form.reset();
   };
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field>
-        <Label>Email</Label>
-        <Input
+    <FormLogin onSubmit={handleSubmit}>
+      <LoginField>
+        <LoginLabel>Email</LoginLabel>
+        <LoginInput
           type="email"
           name="email"
           placeholder="Enter your email..."
-          pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
-          title="Email must consist of numbers or letters and @. Example, user@mail.com"
+          title="Email must consist of your personal info,@ symbol and domain. Example, personal_info@domain"
           required
         />
-      </Field>
-      <Field>
-        <Label>Password</Label>
-        <Input
+      </LoginField>
+      <LoginField>
+        <LoginLabel>Password</LoginLabel>
+        <LoginInput
           type="password"
           name="password"
           placeholder="Enter your password..."
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Password must consist of numbers and letters and can't contain spaces and start with +"
+          title="Password must consist of numbers and letters"
           required
         />
-      </Field>
-      <Submit type="submit">Log in</Submit>
-    </Form>
+      </LoginField>
+      <LoginSubmit type="submit">Log in</LoginSubmit>
+    </FormLogin>
   );
 };

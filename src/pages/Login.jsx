@@ -1,7 +1,7 @@
 import { Container, Section, Title } from 'components/base/CommonStyle.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
-const LoginPage = () => {
+const Login = () => {
   return (
     <Section>
       <Container>
@@ -12,4 +12,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
