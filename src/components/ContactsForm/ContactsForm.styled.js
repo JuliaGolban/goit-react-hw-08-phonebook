@@ -23,7 +23,7 @@ const Label = styled.span`
   font-weight: 500;
   line-height: 1.17;
   letter-spacing: 0.01em;
-  color: #2a2a2a;
+  color: rgb(42 42 42);
 `;
 
 const Input = styled.input`
@@ -32,7 +32,7 @@ const Input = styled.input`
 
   font-size: 12px;
   font-weight: 500;
-  color: #2a2a2a;
+  color: rgb(42 42 42);
 
   background-color: rgb(255 255 255 / 70%);
   border-radius: 5px;
@@ -59,7 +59,7 @@ const Submit = styled.button`
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #2a2a2a;
+  color: rgb(42 42 42);
 
   background-color: rgba(160, 141, 196, 0.5);
   border-radius: 5px;

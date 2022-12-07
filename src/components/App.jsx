@@ -1,22 +1,22 @@
-import { ContactForm } from './Form/Form';
-import { ContactList } from './List/List';
-import { Filter } from './Filter/Filter';
-import { Container, Section, Title } from './base/CommonStyle.styled';
-import { GlobalStyle } from 'components/base/GlobalStyle';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { SharedLayout } from 'components/SharedLayout/SharedLayout';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage'));
 
 export const App = () => {
   return (
-    <Container>
-      <Section>
-        <Title as="h1">Phonebook</Title>
-        <ContactForm />
-      </Section>
-      <Section>
-        <Title as="h2">Contacts</Title>
-        <Filter />
-        <ContactList />
-      </Section>
-      <GlobalStyle />
-    </Container>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="*" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };

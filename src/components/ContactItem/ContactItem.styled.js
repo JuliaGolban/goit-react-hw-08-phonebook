@@ -6,7 +6,7 @@ const Item = styled.li`
   align-items: center;
   align-content: center;
 
-  color: #2a2a2a;
+  color: rgb(42 42 42);
 
   &:not(:last-child) {
     margin-bottom: 10px;
@@ -32,7 +32,7 @@ const DeleteIconBtn = styled.button`
 
   padding: 0;
 
-  color: #2a2a2a;
+  color: rgb(42 42 42);
   background-color: transparent;
   border: none;
   cursor: pointer;

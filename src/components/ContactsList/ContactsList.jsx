@@ -4,10 +4,10 @@ import {
   selectIsLoading,
   selectError,
   selectVisibleContacts,
-} from 'redux/selectors';
-import { fetchContacts } from 'redux/operations';
-import { ContactItem } from 'components/Item/Item';
-import { List, Notify } from './List.styled';
+} from 'redux/phonebook/selectors';
+import { fetchContacts } from 'redux/phonebook/operations';
+import { ContactItem } from 'components/ContactItem/ContactItem';
+import { List, Notify } from './ContactsList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(selectVisibleContacts);
