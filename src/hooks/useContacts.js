@@ -3,7 +3,7 @@ import {
   selectIsLoading,
   selectError,
   selectVisibleContacts,
-} from 'redux/phonebook/selectors';
+} from 'redux/contacts/selectors';
 
 export const useContacts = () => {
   const contacts = useSelector(selectVisibleContacts);

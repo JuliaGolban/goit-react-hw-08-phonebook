@@ -20,10 +20,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
-    // isRefreshing ? (
-    //   <p>Refreshing user...</p>
-    // ) : (
+  return isRefreshing ? (
+    <p>Refreshing user...</p>
+  ) : (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<HomePage />} />

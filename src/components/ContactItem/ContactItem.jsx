@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { MdPerson, MdClose } from 'react-icons/md';
-import { deleteContact } from 'redux/phonebook/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import { Item, Name, Number, DeleteIconBtn } from './ContactItem.styled';
 
 export const ContactItem = ({ id, name, number }) => {
