@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useContacts } from 'hooks/useContacts';
-import { addContact } from 'redux/contacts/operations';
+import { addContact } from 'redux/phonebook/operations';
 import {
   ContactsForm,
   ContactsField,

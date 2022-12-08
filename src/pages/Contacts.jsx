@@ -6,10 +6,12 @@ import {
   Section,
   Title,
 } from '../components/base/CommonStyle.styled';
+import { SEO } from 'components/SEO';
 
 const Contacts = () => {
   return (
     <main>
+      <SEO title="Contacts" description="You can create your contacts list" />
       <Section>
         <Title as="h1" hidden>
           Phonebook

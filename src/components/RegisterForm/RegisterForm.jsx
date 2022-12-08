@@ -17,7 +17,7 @@ export const RegisterForm = () => {
 
     const name = form.elements.name;
     const email = form.elements.email;
-    const password = form.elements.email;
+    const password = form.elements.password;
 
     const newUser = {
       name: name.value,
@@ -37,7 +37,6 @@ export const RegisterForm = () => {
           type="text"
           name="name"
           placeholder="Enter your name..."
-          pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />

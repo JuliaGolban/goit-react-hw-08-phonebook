@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useContacts } from 'hooks/useContacts';
-import { fetchContacts } from 'redux/contacts/operations';
+import { fetchContacts } from 'redux/phonebook/operations';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { List, Notify } from './ContactsList.styled';
 

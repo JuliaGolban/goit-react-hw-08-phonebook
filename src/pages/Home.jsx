@@ -1,3 +1,4 @@
+import { RiContactsBookFill } from 'react-icons/ri';
 import { Container, Section, Title } from 'components/base/CommonStyle.styled';
 
 const Home = () => {
@@ -9,12 +10,7 @@ const Home = () => {
           <b> Phonebook</b> - <br />
           Contacts manager
         </Title>
-        <img
-          src="https://help.apple.com/assets/61E87F37C2259833FA488417/61E87F38C2259833FA48841E/en_US/97d1bbc73dbf602c4bc123c17bb5def0.png"
-          alt="Contacts book icon"
-          width={50}
-          height={50}
-        />
+        <RiContactsBookFill size={50} fill="rgb(9 9 121)" />
       </Section>
     </Container>
   );
