@@ -64,7 +64,7 @@ const Submit = styled.button`
   text-transform: uppercase;
   color: rgb(42 42 42);
 
-  background-color: rgba(160, 141, 196, 0.5);
+  background-color: rgba(9, 9, 121, 0.3);
   border-radius: 5px;
   border: none;
   /* border: 1px solid rgba(128, 128, 128, 0.7); */
@@ -74,7 +74,7 @@ const Submit = styled.button`
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(9, 9, 121, 0.3);
+    background-color: rgba(160, 141, 196, 0.5);
     border: none;
     /* border: 1px solid rgba(128, 128, 128); */
     box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.3) inset;
