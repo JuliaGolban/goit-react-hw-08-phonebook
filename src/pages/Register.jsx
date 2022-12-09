@@ -9,12 +9,12 @@ const Register = () => {
         title="Registration"
         description="You can register using your email"
       />
-      <Section>
-        <Container>
+      <Container>
+        <Section>
           <Title>Sign up with Email</Title>
           <RegisterForm />
-        </Container>
-      </Section>
+        </Section>
+      </Container>
     </main>
   );
 };

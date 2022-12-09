@@ -2,14 +2,7 @@ import styled from 'styled-components';
 import { Field, Label, Input } from '../base/Form.styled';
 
 const FieldFilter = styled(Field)``;
-
-const LabelFilter = styled(Label)`
-  font-size: 12px;
-`;
-
-const InputFilter = styled(Input)`
-  width: 250px;
-  padding: 5px 10px;
-`;
+const LabelFilter = styled(Label)``;
+const InputFilter = styled(Input)``;
 
 export { FieldFilter, LabelFilter, InputFilter };

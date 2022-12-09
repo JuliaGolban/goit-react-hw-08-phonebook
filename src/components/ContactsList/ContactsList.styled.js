@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 const List = styled.ul`
-  width: 300px;
+  width: calc(100vw - 40px);
+  @media screen and (min-width: 320px) {
+    max-width: 300px;
+  }
 `;
 
 const Notify = styled.p`

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Header = styled.header`
   display: inline-flex;
   width: 100vw;
+  min-height: 50px;
   padding: 10px 0;
 
   border-bottom: 5px;
@@ -11,25 +12,46 @@ const Header = styled.header`
 
   & > div {
     display: inline-flex;
+    flex-direction: row;
     justify-content: space-between;
-    max-width: 100vw;
+    align-items: center;
+    gap: 15px;
+    width: 100vw;
+
+    @media screen and (min-width: 768px) {
+      max-width: 1200px;
+    }
   }
 `;
 
 const PageNav = styled.nav`
   display: flex;
-  gap: 15px;
+  gap: 10px;
+
+  @media screen and (min-width: 320px) {
+    gap: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 const AuthNav = styled.nav`
   display: flex;
-  gap: 15px;
+  gap: 10px;
+
+  @media screen and (min-width: 320px) {
+    gap: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 20px;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
-  padding: 8px 10px;
-
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
 
@@ -42,18 +64,10 @@ const StyledNavLink = styled(NavLink)`
 
   &.active {
     color: rgb(9 9 121);
-    /* background-color: rgb(255 255 255 / 30%);
-    box-shadow: 5px 5px 5px -2px rgb(132 132 132 / 20%) inset,
-      -5px 5px 5px -2px rgb(132 132 132 / 20%) inset,
-      -5px -5px 5px -2px rgb(132 132 132 / 20%) inset; */
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
     color: rgb(9 9 121);
-    /* background-color: rgb(255 255 255 / 30%);
-    box-shadow: 5px 5px 5px -2px rgb(132 132 132 / 20%) inset,
-      -5px 5px 5px -2px rgb(132 132 132 / 20%) inset,
-      -5px -5px 5px -2px rgb(132 132 132 / 20%) inset; */
   }
 `;
 

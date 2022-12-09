@@ -66,7 +66,8 @@ const Submit = styled.button`
 
   background-color: rgba(160, 141, 196, 0.5);
   border-radius: 5px;
-  border: 1px solid rgba(128, 128, 128, 0.7);
+  border: none;
+  /* border: 1px solid rgba(128, 128, 128, 0.7); */
   box-shadow: 5px 5px 5px -2px rgba(75, 92, 165, 0.3);
   cursor: pointer;
 
@@ -74,7 +75,8 @@ const Submit = styled.button`
   &:focus,
   &:active {
     background-color: rgba(9, 9, 121, 0.3);
-    border: 1px solid rgba(128, 128, 128);
+    border: none;
+    /* border: 1px solid rgba(128, 128, 128); */
     box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.3) inset;
   }
 `;

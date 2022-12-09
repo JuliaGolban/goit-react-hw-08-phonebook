@@ -10,8 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
  
-background: rgb(238,174,202);
-background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+background: radial-gradient(circle, rgb(238,174,202) 0%, rgb(148,187,233) 100%);
 }
 
   code {

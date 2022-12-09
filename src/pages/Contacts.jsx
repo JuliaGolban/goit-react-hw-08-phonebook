@@ -12,22 +12,20 @@ const Contacts = () => {
   return (
     <main>
       <SEO title="Contacts" description="You can create your contacts list" />
-      <Section>
-        <Title as="h1" hidden>
-          Phonebook
-        </Title>
-        <Container>
+      <Container>
+        <Section>
+          <Title as="h1" hidden>
+            Phonebook
+          </Title>
           <Title as="h2">New contact</Title>
           <ContactForm />
-        </Container>
-      </Section>
-      <Section>
-        <Container>
+        </Section>
+        <Section>
           <Title as="h2">Contacts</Title>
           <Filter />
           <ContactList />
-        </Container>
-      </Section>
+        </Section>
+      </Container>
     </main>
   );
 };

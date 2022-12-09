@@ -6,12 +6,12 @@ const Login = () => {
   return (
     <main>
       <SEO title="Login" description="You can login to your account" />
-      <Section>
-        <Container>
+      <Container>
+        <Section>
           <Title>Log in to your account</Title>
           <LoginForm />
-        </Container>
-      </Section>
+        </Section>
+      </Container>
     </main>
   );
 };
