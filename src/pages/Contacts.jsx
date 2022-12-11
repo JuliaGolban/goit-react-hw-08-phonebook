@@ -6,7 +6,7 @@ import {
   Section,
   Title,
 } from '../components/base/CommonStyle.styled';
-import { SEO } from 'components/SEO';
+import { SEO } from 'utils/SEO';
 
 const Contacts = () => {
   return (

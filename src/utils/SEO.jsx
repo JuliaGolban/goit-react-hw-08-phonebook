@@ -1,13 +1,17 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import PropTypes from 'prop-types';
 
 export function SEO({ title, description }) {
   return (
     <Helmet>
-      {/* Standard metadata tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      {/* End standard metadata tags */}
     </Helmet>
   );
 }
+
+SEO.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+};

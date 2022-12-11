@@ -1,6 +1,6 @@
 import { Container, Section, Title } from 'components/base/CommonStyle.styled';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
-import { SEO } from 'components/SEO';
+import { SEO } from 'utils/SEO';
 
 const Register = () => {
   return (

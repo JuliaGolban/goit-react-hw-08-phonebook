@@ -5,8 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { SharedLayout } from 'components/SharedLayout';
-import { PrivateRoute } from './PrivateRoute';
-import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from '../utils/PrivateRoute';
+import { RestrictedRoute } from '../utils/RestrictedRoute';
 import { Title } from './base/CommonStyle.styled';
 
 const HomePage = lazy(() => import('pages/Home'));

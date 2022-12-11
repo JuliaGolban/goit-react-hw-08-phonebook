@@ -1,6 +1,6 @@
 import { Container, Section, Title } from 'components/base/CommonStyle.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
-import { SEO } from 'components/SEO';
+import { SEO } from 'utils/SEO';
 
 const Login = () => {
   return (
