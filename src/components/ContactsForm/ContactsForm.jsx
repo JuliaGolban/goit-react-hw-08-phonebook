@@ -1,22 +1,11 @@
 import toast from 'react-hot-toast';
-// import { useDispatch } from 'react-redux';
-// import { useContacts } from 'hooks/useContacts';
-// import { addContact } from 'redux/phonebook/operations';
 import {
   useGetContactsQuery,
   useAddContactMutation,
 } from 'redux/phonebook/operations';
-import {
-  ContactsForm,
-  ContactsField,
-  ContactsLabel,
-  ContactsInput,
-  ContactsSubmit,
-} from './ContactsForm.styled';
+import { Form, Field, Label, Input, Submit } from '../base styles/Form.styled';
 
 export const ContactForm = () => {
-  // const { contacts } = useContacts();
-  // const dispatch = useDispatch();
   const { data: contacts = [] } = useGetContactsQuery();
   const [addContact, { isLoading }] = useAddContactMutation();
 
@@ -55,22 +44,18 @@ export const ContactForm = () => {
       }
 
       // add the new contact to phonebook and reset form
-
-      // dispatch(addContact(newContact));
       await addContact(newContact).unwrap();
-
       form.reset();
     } catch (error) {
       toast.error('Error adding the contact');
-      console.log(error.message);
     }
   };
 
   return (
-    <ContactsForm onSubmit={handleSubmit}>
-      <ContactsField>
-        <ContactsLabel>Name</ContactsLabel>
-        <ContactsInput
+    <Form onSubmit={handleSubmit}>
+      <Field>
+        <Label>Name</Label>
+        <Input
           type="text"
           name="name"
           placeholder="Enter name..."
@@ -78,10 +63,10 @@ export const ContactForm = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </ContactsField>
-      <ContactsField>
-        <ContactsLabel>Number</ContactsLabel>
-        <ContactsInput
+      </Field>
+      <Field>
+        <Label>Number</Label>
+        <Input
           type="tel"
           name="number"
           placeholder="Enter phone number..."
@@ -89,10 +74,10 @@ export const ContactForm = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </ContactsField>
-      <ContactsSubmit type="submit" disabled={isLoading}>
+      </Field>
+      <Submit type="submit" disabled={isLoading}>
         Add contact
-      </ContactsSubmit>
-    </ContactsForm>
+      </Submit>
+    </Form>
   );
 };

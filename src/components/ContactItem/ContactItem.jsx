@@ -1,29 +1,42 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
-import { MdPerson, MdClose } from 'react-icons/md';
-// import { deleteContact } from 'redux/phonebook/operations';
+import { MdPerson, MdClose, MdEdit } from 'react-icons/md';
 import { useDeleteContactMutation } from 'redux/phonebook/operations';
-import { Item, Name, Number, DeleteIconBtn } from './ContactItem.styled';
+import { Item, Name, Number, IconBtn } from './ContactItem.styled';
+import { ContactModalEdit } from 'components/ContactModalEdit/ContactModalEdit';
 
-export const ContactItem = ({ id, name, number }) => {
-  // const dispatch = useDispatch();
-  // const handleDelete = () => dispatch(deleteContact(id));
+export const ContactItem = contact => {
+  const { id, name, number } = contact;
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
+
   return (
-    <Item key={id}>
-      <MdPerson size={15} />
-      <Name>{name}</Name>
-      <Number>{number}</Number>
-      <DeleteIconBtn
-        aria-label="Delete contact"
-        onClick={() => deleteContact(id).unwrap()}
-        disabled={isDeleting}
-      >
-        <MdClose size={10} />
-      </DeleteIconBtn>
-    </Item>
+    <>
+      <Item key={id}>
+        <MdPerson size={15} />
+        <Name>{name}</Name>
+        <Number>{number}</Number>
+        <IconBtn aria-label="Edit contact" onClick={toggleModal}>
+          <MdEdit size={15} />
+        </IconBtn>
+        <IconBtn
+          aria-label="Delete contact"
+          onClick={() => deleteContact(id).unwrap()}
+          disabled={isDeleting}
+        >
+          <MdClose size={15} />
+        </IconBtn>
+      </Item>
+      {isModalOpen && (
+        <ContactModalEdit
+          onClose={toggleModal}
+          onSave={toggleModal}
+          contact={contact}
+        />
+      )}
+    </>
   );
 };
 

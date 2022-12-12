@@ -5,7 +5,7 @@ import {
   Container,
   Section,
   Title,
-} from '../components/base/CommonStyle.styled';
+} from '../components/base styles/CommonStyle.styled';
 import { SEO } from 'utils/SEO';
 
 const Contacts = () => {
@@ -17,7 +17,7 @@ const Contacts = () => {
           <Title as="h1" hidden>
             Phonebook
           </Title>
-          <Title as="h2">New contact</Title>
+          <Title as="h2">Create New contact</Title>
           <ContactForm />
         </Section>
         <Section>

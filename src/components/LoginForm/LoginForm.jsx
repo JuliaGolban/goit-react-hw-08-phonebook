@@ -1,12 +1,7 @@
 import { useDispatch } from 'react-redux';
+// import { BiShow, BiHide } from 'react-icons/bi';
 import { logIn } from 'redux/auth/operations';
-import {
-  FormLogin,
-  LoginField,
-  LoginLabel,
-  LoginInput,
-  LoginSubmit,
-} from './LoginForm.styled';
+import { Form, Field, Label, Input, Submit } from '../base styles/Form.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -27,28 +22,28 @@ export const LoginForm = () => {
     form.reset();
   };
   return (
-    <FormLogin onSubmit={handleSubmit}>
-      <LoginField>
-        <LoginLabel>Email</LoginLabel>
-        <LoginInput
+    <Form onSubmit={handleSubmit}>
+      <Field>
+        <Label>Email</Label>
+        <Input
           type="email"
           name="email"
           placeholder="Enter your email..."
           title="Email must consist of your personal info,@ symbol and domain. Example, personal_info@domain"
           required
         />
-      </LoginField>
-      <LoginField>
-        <LoginLabel>Password</LoginLabel>
-        <LoginInput
+      </Field>
+      <Field>
+        <Label>Password</Label>
+        <Input
           type="password"
           name="password"
           placeholder="Enter your password..."
           title="Password must consist of numbers and letters"
           required
         />
-      </LoginField>
-      <LoginSubmit type="submit">Log in</LoginSubmit>
-    </FormLogin>
+      </Field>
+      <Submit type="submit">Log in</Submit>
+    </Form>
   );
 };

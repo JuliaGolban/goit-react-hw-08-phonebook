@@ -1,9 +1,10 @@
+import { IconButton } from 'components/base styles/Buttons';
 import styled from 'styled-components';
 
 const Item = styled.li`
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-end;
   align-content: center;
 
   color: rgb(42 42 42);
@@ -15,38 +16,23 @@ const Item = styled.li`
 
 const Name = styled.span`
   margin-right: auto;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Number = styled.span`
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
-`;
 
-const DeleteIconBtn = styled.button`
-  display: inline-flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0;
-
-  color: rgb(42 42 42);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: red;
-  }
-
-  & > svg {
-    fill: currentColor;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
   }
 `;
 
-export { Item, Name, Number, DeleteIconBtn };
+const IconBtn = styled(IconButton)``;
+
+export { Item, Name, Number, IconBtn };

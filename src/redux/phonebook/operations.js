@@ -3,6 +3,8 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // === code with RTK Query ===
+
+// /* axios defaults baseURL is already in use with auth
 const axiosBaseQuery =
   () =>
   async ({ url, method, data, params }) => {
@@ -38,31 +40,38 @@ export const phonebookApi = createApi({
         url: '/contacts',
         method: 'get',
       }),
-      // providesTags: ['Contact'],
-      providesTags: result =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: 'Contact', id })),
-              { type: 'Contact', id: 'LIST' },
-            ]
-          : [{ type: 'Contact', id: 'LIST' }],
+      providesTags: ['Contact'],
     }),
+
     addContact: build.mutation({
       query: ({ name, number }) => ({
         url: '/contacts',
         method: 'post',
-        body: { name: name, number: number },
+        data: {
+          name: name,
+          number: number,
+        },
       }),
-      // invalidatesTags: ['Contact'],
-      invalidatesTags: [{ type: 'Contact', id: 'LIST' }],
+      invalidatesTags: ['Contact'],
     }),
+
     deleteContact: build.mutation({
       query: id => ({
         url: `/contacts/${id}`,
         method: 'delete',
       }),
-      // invalidatesTags: ['Contact'],
-      invalidatesTags: [{ type: 'Contact', id: 'LIST' }],
+      invalidatesTags: ['Contact'],
+    }),
+
+    updateContact: build.mutation({
+      query(id, data) {
+        return {
+          url: `contacts/${id}`,
+          method: 'PATCH',
+          data,
+        };
+      },
+      invalidatesTags: ['Contact'],
     }),
   }),
 });
@@ -71,6 +80,7 @@ export const {
   useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
+  useUpdateContactMutation,
 } = phonebookApi;
 
 // === code with createAsyncThunk ===

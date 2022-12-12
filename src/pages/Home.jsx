@@ -1,6 +1,10 @@
 import { RiContactsBookFill } from 'react-icons/ri';
 import { AuthMenu } from 'components/AuthMenu/AuthMenu';
-import { Container, Section, Title } from 'components/base/CommonStyle.styled';
+import {
+  Container,
+  Section,
+  Title,
+} from 'components/base styles/CommonStyle.styled';
 
 const Home = () => {
   return (

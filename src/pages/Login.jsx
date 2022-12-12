@@ -1,4 +1,8 @@
-import { Container, Section, Title } from 'components/base/CommonStyle.styled';
+import {
+  Container,
+  Section,
+  Title,
+} from 'components/base styles/CommonStyle.styled';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { SEO } from 'utils/SEO';
 

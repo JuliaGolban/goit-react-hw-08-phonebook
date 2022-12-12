@@ -20,6 +20,7 @@ const Header = styled.header`
 
     @media screen and (min-width: 768px) {
       max-width: 1200px;
+      min-height: 70px;
     }
   }
 `;

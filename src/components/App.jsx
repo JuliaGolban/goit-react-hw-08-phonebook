@@ -7,7 +7,7 @@ import { useAuth } from 'hooks/useAuth';
 import { SharedLayout } from 'components/SharedLayout';
 import { PrivateRoute } from '../utils/PrivateRoute';
 import { RestrictedRoute } from '../utils/RestrictedRoute';
-import { Title } from './base/CommonStyle.styled';
+import { Title } from './base styles/CommonStyle.styled';
 
 const HomePage = lazy(() => import('pages/Home'));
 const ContactsPage = lazy(() => import('pages/Contacts'));

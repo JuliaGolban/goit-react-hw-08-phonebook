@@ -1,6 +1,6 @@
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useAuth } from 'hooks/useAuth';
-import { Container } from 'components/base/CommonStyle.styled';
+import { Container } from 'components/base styles/CommonStyle.styled';
 import { Header, PageNav, AuthNav, StyledNavLink } from './AppBar.styled';
 
 export const AppBar = () => {

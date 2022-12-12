@@ -1,12 +1,7 @@
 import { useDispatch } from 'react-redux';
+// import { BiShow, BiHide } from 'react-icons/bi';
 import { register } from 'redux/auth/operations';
-import {
-  FormRegister,
-  RegisterField,
-  RegisterLabel,
-  RegisterInput,
-  RegisterSubmit,
-} from './RegisterForm.styled';
+import { Form, Field, Label, Input, Submit } from '../base styles/Form.styled';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -30,38 +25,38 @@ export const RegisterForm = () => {
   };
 
   return (
-    <FormRegister onSubmit={handleSubmit}>
-      <RegisterField>
-        <RegisterLabel>Username</RegisterLabel>
-        <RegisterInput
+    <Form onSubmit={handleSubmit}>
+      <Field>
+        <Label>Username</Label>
+        <Input
           type="text"
           name="name"
           placeholder="Enter your name..."
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </RegisterField>
-      <RegisterField>
-        <RegisterLabel>Email</RegisterLabel>
-        <RegisterInput
+      </Field>
+      <Field>
+        <Label>Email</Label>
+        <Input
           type="email"
           name="email"
           placeholder="Enter your email..."
           title="Email must consist of your personal info,@ symbol and domain. Example, personal_info@domain"
           required
         />
-      </RegisterField>
-      <RegisterField>
-        <RegisterLabel>Password</RegisterLabel>
-        <RegisterInput
+      </Field>
+      <Field>
+        <Label>Password</Label>
+        <Input
           type="password"
           name="password"
           placeholder="Enter your password..."
           title="Password must consist of numbers and letters"
           required
         />
-      </RegisterField>
-      <RegisterSubmit type="submit">Sing up</RegisterSubmit>
-    </FormRegister>
+      </Field>
+      <Submit type="submit">Sing up</Submit>
+    </Form>
   );
 };
