@@ -61,8 +61,8 @@ export const ContactForm = () => {
 
       form.reset();
     } catch (error) {
-      toast.error(`${error.message}`);
-      console.log(error);
+      toast.error('Error adding the contact');
+      console.log(error.message);
     }
   };
 

@@ -1,13 +1,13 @@
 import axios from 'axios';
-// import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createApi } from '@reduxjs/toolkit/query/react';
+// import { createAsyncThunk } from '@reduxjs/toolkit';
 
 // === code with RTK Query ===
 const axiosBaseQuery =
-  ({ baseUrl } = { baseUrl: '' }) =>
+  () =>
   async ({ url, method, data, params }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data, params });
+      const result = await axios({ url, method, data, params });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError;
@@ -21,11 +21,9 @@ const axiosBaseQuery =
   };
 
 export const phonebookApi = createApi({
-  reducerPath: 'contacts',
+  reducerPath: 'phonebookApi',
   baseQuery: axiosBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
-      console.log('headers', headers);
       const token = getState().auth.token;
       if (token) {
         headers.set('authorization', `Bearer ${token}`);

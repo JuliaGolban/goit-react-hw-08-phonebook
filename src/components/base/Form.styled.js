@@ -57,6 +57,8 @@ const Submit = styled.button`
   justify-content: center;
   align-items: center;
 
+  min-width: 100px;
+  min-height: 30px;
   padding: 8px 10px;
 
   font-size: 10px;
@@ -64,19 +66,18 @@ const Submit = styled.button`
   text-transform: uppercase;
   color: rgb(42 42 42);
 
-  background-color: rgba(9, 9, 121, 0.3);
+  background-color: rgba(160, 141, 196, 0.5);
   border-radius: 5px;
   border: none;
-  /* border: 1px solid rgba(128, 128, 128, 0.7); */
   box-shadow: 5px 5px 5px -2px rgba(75, 92, 165, 0.3);
   cursor: pointer;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(160, 141, 196, 0.5);
+    color: rgb(255 255 255);
+    background-color: rgba(9, 9, 121, 0.7);
     border: none;
-    /* border: 1px solid rgba(128, 128, 128); */
     box-shadow: 1px -1px 10px -2px rgba(75, 92, 165, 0.3) inset;
   }
 `;
