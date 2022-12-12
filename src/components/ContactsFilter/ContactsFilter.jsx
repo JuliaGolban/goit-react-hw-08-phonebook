@@ -9,6 +9,7 @@ export const Filter = () => {
   const handleFilterChange = e => dispatch(filterContacts(e.target.value));
 
   const filter = useSelector(selectFilter);
+
   return (
     <FieldFilter aria-label="Filter">
       <LabelFilter>Find contacts by name</LabelFilter>
