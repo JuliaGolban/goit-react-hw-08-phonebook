@@ -53,7 +53,7 @@ export const ContactForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Field>
+      <Field aria-label="Name">
         <Label>Name</Label>
         <Input
           type="text"
@@ -64,7 +64,7 @@ export const ContactForm = () => {
           required
         />
       </Field>
-      <Field>
+      <Field aria-label="Number">
         <Label>Number</Label>
         <Input
           type="tel"

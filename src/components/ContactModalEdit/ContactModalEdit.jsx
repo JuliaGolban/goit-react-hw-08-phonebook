@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { MdClose } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import { IconButton } from 'components/base styles/Buttons';
 import { Overlay, Modal } from './ContactModalEdit.styled';
 import { ContactEditorForm } from './ContactFormEdit';
@@ -41,4 +42,14 @@ export const ContactModalEdit = ({ onClose, onSave, contact }) => {
     </Overlay>,
     modalRoot
   );
+};
+
+ContactModalEdit.propTypes = {
+  contact: PropTypes.exact({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.string,
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
 };

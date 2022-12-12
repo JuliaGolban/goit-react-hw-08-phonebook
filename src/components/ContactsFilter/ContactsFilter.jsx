@@ -10,7 +10,7 @@ export const Filter = () => {
 
   const filter = useSelector(selectFilter);
   return (
-    <FieldFilter>
+    <FieldFilter aria-label="Filter">
       <LabelFilter>Find contacts by name</LabelFilter>
       <InputFilter
         type="text"

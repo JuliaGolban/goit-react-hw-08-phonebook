@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-// import { BiShow, BiHide } from 'react-icons/bi';
 import { logIn } from 'redux/auth/operations';
 import { Form, Field, Label, Input, Submit } from '../base styles/Form.styled';
+import { PasswordInput } from 'components/base styles/PasswordInput';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,6 @@ export const LoginForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-
     const email = form.elements.email;
     const password = form.elements.password;
 
@@ -21,9 +20,10 @@ export const LoginForm = () => {
     dispatch(logIn(user));
     form.reset();
   };
+
   return (
     <Form onSubmit={handleSubmit}>
-      <Field>
+      <Field aria-label="Email">
         <Label>Email</Label>
         <Input
           type="email"
@@ -33,15 +33,9 @@ export const LoginForm = () => {
           required
         />
       </Field>
-      <Field>
+      <Field aria-label="Password">
         <Label>Password</Label>
-        <Input
-          type="password"
-          name="password"
-          placeholder="Enter your password..."
-          title="Password must consist of numbers and letters"
-          required
-        />
+        <PasswordInput />
       </Field>
       <Submit type="submit">Log in</Submit>
     </Form>

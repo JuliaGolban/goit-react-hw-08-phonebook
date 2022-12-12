@@ -7,14 +7,15 @@ const TextButton = styled.button`
 
   min-width: 100px;
   min-height: 30px;
+  margin: ${props => props.margin || '0'};
   padding: 8px 10px;
 
-  font-size: 10px;
+  font-size: ${props => props.size || '10px'};
   font-weight: 700;
   text-transform: uppercase;
   color: rgb(42 42 42);
 
-  background-color: rgba(160, 141, 196, 0.5);
+  background-color: ${props => props.bgc || 'rgba(160, 141, 196, 0.5)'};
   border-radius: 5px;
   border: none;
   box-shadow: 5px 5px 5px -2px rgba(75, 92, 165, 0.3);
@@ -36,9 +37,10 @@ const IconButton = styled.button`
   justify-content: center;
   align-items: center;
 
+  margin: ${props => props.margin || '0'};
   padding: 0;
 
-  color: rgb(42 42 42);
+  color: ${props => props.color || 'rgb(42 42 42)'};
   background-color: transparent;
   border: none;
   cursor: pointer;

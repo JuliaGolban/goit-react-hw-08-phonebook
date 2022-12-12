@@ -1,11 +1,10 @@
 import { useDispatch } from 'react-redux';
-// import { BiShow, BiHide } from 'react-icons/bi';
 import { register } from 'redux/auth/operations';
 import { Form, Field, Label, Input, Submit } from '../base styles/Form.styled';
+import { PasswordInput } from 'components/base styles/PasswordInput';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -25,8 +24,8 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Field>
+    <Form onSubmit={handleSubmit} autoComplete="off">
+      <Field aria-label="Username">
         <Label>Username</Label>
         <Input
           type="text"
@@ -36,7 +35,7 @@ export const RegisterForm = () => {
           required
         />
       </Field>
-      <Field>
+      <Field aria-label="Email">
         <Label>Email</Label>
         <Input
           type="email"
@@ -46,15 +45,9 @@ export const RegisterForm = () => {
           required
         />
       </Field>
-      <Field>
+      <Field aria-label="Password">
         <Label>Password</Label>
-        <Input
-          type="password"
-          name="password"
-          placeholder="Enter your password..."
-          title="Password must consist of numbers and letters"
-          required
-        />
+        <PasswordInput />
       </Field>
       <Submit type="submit">Sing up</Submit>
     </Form>

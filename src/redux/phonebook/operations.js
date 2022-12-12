@@ -64,11 +64,14 @@ export const phonebookApi = createApi({
     }),
 
     updateContact: build.mutation({
-      query(id, data) {
+      query({ id, name, number }) {
         return {
-          url: `contacts/${id}`,
+          url: `/contacts/${id}`,
           method: 'PATCH',
-          data,
+          data: {
+            name: name,
+            number: number,
+          },
         };
       },
       invalidatesTags: ['Contact'],

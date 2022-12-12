@@ -1,5 +1,5 @@
 import { useGetContactsQuery } from 'redux/phonebook/operations';
-import { ContactItem } from 'components/ContactItem/ContactItem';
+import { ContactItem } from 'components/Contact/Contact';
 import { List, Notify } from './ContactsList.styled';
 
 export const ContactList = () => {

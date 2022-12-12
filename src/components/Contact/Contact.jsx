@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdPerson, MdClose, MdEdit } from 'react-icons/md';
 import { useDeleteContactMutation } from 'redux/phonebook/operations';
-import { Item, Name, Number, IconBtn } from './ContactItem.styled';
+import { Item, Name, Number, IconBtn } from './Contact.styled';
 import { ContactModalEdit } from 'components/ContactModalEdit/ContactModalEdit';
 
 export const ContactItem = contact => {
@@ -41,7 +41,9 @@ export const ContactItem = contact => {
 };
 
 ContactItem.propTypes = {
-  id: PropTypes.string,
-  name: PropTypes.string,
-  number: PropTypes.string,
+  contact: PropTypes.exact({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.string,
+  }),
 };
