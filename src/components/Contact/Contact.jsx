@@ -5,7 +5,7 @@ import { useDeleteContactMutation } from 'redux/phonebook/operations';
 import { Item, Name, Number, IconBtn } from './Contact.styled';
 import { ContactModalEdit } from 'components/ContactModalEdit/ContactModalEdit';
 
-export const ContactItem = contact => {
+export const Contact = contact => {
   const { id, name, number } = contact;
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
@@ -40,7 +40,7 @@ export const ContactItem = contact => {
   );
 };
 
-ContactItem.propTypes = {
+Contact.propTypes = {
   contact: PropTypes.exact({
     id: PropTypes.string,
     name: PropTypes.string,

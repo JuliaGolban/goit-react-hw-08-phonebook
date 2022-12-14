@@ -1,5 +1,5 @@
-import { IconButton } from 'components/base styles/Buttons';
 import styled from 'styled-components';
+import { IconButton } from 'components/base styles/Buttons';
 
 const Item = styled.li`
   display: flex;
@@ -11,6 +11,15 @@ const Item = styled.li`
 
   &:not(:last-child) {
     margin-bottom: 10px;
+  }
+
+  &:hover,
+  &:focus {
+    scale: 1.1;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.7);
+    box-shadow: 3px 5px 10px -2px rgba(75, 92, 165, 0.5);
   }
 `;
 

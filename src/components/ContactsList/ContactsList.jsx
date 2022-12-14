@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useGetContactsQuery } from 'redux/phonebook/operations';
 import { selectFilter } from 'redux/phonebook/selectors';
-import { ContactItem } from 'components/Contact/Contact';
+import { Contact } from 'components/Contact/Contact';
 import { List, Notify } from './ContactsList.styled';
 
 export const ContactList = () => {
@@ -20,7 +20,7 @@ export const ContactList = () => {
     <List>
       {visibleContacts.length > 0 &&
         visibleContacts.map(({ id, name, number }) => (
-          <ContactItem key={id} id={id} name={name} number={number} />
+          <Contact key={id} id={id} name={name} number={number} />
         ))}
 
       {isLoading && !isError && <Notify>Loading...</Notify>}
