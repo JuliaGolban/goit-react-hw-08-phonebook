@@ -5,7 +5,11 @@ import { ContactItem } from 'components/Contact/Contact';
 import { List, Notify } from './ContactsList.styled';
 
 export const ContactList = () => {
-  const { data: contacts = [], isLoading, error } = useGetContactsQuery();
+  const {
+    data: contacts = [],
+    isFetching: isLoading,
+    isError,
+  } = useGetContactsQuery();
   const filter = useSelector(selectFilter);
   const getVisibleContacts = () => {
     return contacts.filter(({ name }) => name.toLowerCase().includes(filter));
@@ -19,10 +23,10 @@ export const ContactList = () => {
           <ContactItem key={id} id={id} name={name} number={number} />
         ))}
 
-      {isLoading && !error && <Notify>Loading contacts...</Notify>}
-      {error && <Notify>{error}</Notify>}
+      {isLoading && !isError && <Notify>Loading...</Notify>}
+      {isError && <Notify>{isError}</Notify>}
 
-      {visibleContacts.length === 0 && !error && !isLoading && (
+      {visibleContacts.length === 0 && !isError && !isLoading && (
         <Notify>No contacts</Notify>
       )}
     </List>
