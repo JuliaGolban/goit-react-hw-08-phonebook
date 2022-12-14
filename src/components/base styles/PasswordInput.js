@@ -24,7 +24,11 @@ const InputGroup = styled.span`
 
 export const PasswordInput = ({ value, onChange }) => {
   const [show, setShow] = useState(true);
-  const handleClick = () => setShow(!show);
+
+  const handleClick = e => {
+    e.preventDefault();
+    setShow(!show);
+  };
 
   return (
     <InputGroup>
