@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { createApi } from '@reduxjs/toolkit/query/react';
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+// or import { createAsyncThunk } from '@reduxjs/toolkit';
+
 
 // === code with RTK Query ===
 
-// /* axios defaults baseURL is already in use with auth
+// Creates wrapper around fetchBaseQuery by axios
 const axiosBaseQuery =
   () =>
+  // axios defaults baseURL is already in use with auth
   async ({ url, method, data, params }) => {
     try {
       const result = await axios({ url, method, data, params });
@@ -25,6 +27,7 @@ const axiosBaseQuery =
 export const phonebookApi = createApi({
   reducerPath: 'phonebookApi',
   baseQuery: axiosBaseQuery({
+    // adds token authentication and validates it
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {

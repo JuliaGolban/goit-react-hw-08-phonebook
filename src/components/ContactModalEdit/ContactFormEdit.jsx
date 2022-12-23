@@ -41,6 +41,7 @@ export const ContactEditorForm = ({ contact, onEdit }) => {
         number: number.value,
       };
 
+      // After a successful edit the contact, close and reset form
       await updateContact(editedContact).unwrap();
       onEdit();
       reset();

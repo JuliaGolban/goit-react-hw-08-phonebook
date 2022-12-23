@@ -22,7 +22,7 @@ export const ContactForm = () => {
         number: number.value,
       };
 
-      // check the new contact for an existing duplicate
+      // checks the new contact for an existing duplicate
       const normalizedName = name.value.toLowerCase();
       const isExist = contacts.some(
         ({ name }) => name.toLowerCase() === normalizedName
@@ -43,7 +43,7 @@ export const ContactForm = () => {
         ));
       }
 
-      // add the new contact to phonebook and reset form
+      // After a successful add the new contact to phonebook, reset form
       await addContact(newContact).unwrap();
       form.reset();
     } catch (error) {

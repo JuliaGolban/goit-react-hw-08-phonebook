@@ -1,43 +1,16 @@
-// import { createAction, isAnyOf } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from 'redux/auth/operations';
-// import { fetchContacts, addContact, deleteContact } from './operations';
+/* or import { createAction, isAnyOf } from '@reduxjs/toolkit';
+import { fetchContacts, addContact, deleteContact } from './operations'; */
 import { phonebookApi } from './operations';
 
-// const handleFetchContacts = (state, action) => {
-//   state.items = action.payload;
-// };
-
-// const handleAddContacts = (state, action) => {
-//   state.items.push(action.payload);
-// };
-
-// const handleDeleteContacts = (state, action) => {
-//   const idx = state.items.findIndex(({ id }) => id === action.payload.id);
-//   state.items.splice(idx, 1);
-// };
-
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-
-// const handleFulfilled = state => {
-//   state.isLoading = false;
-//   state.error = null;
-// };
-
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
+// === code with RTK Query ===
 
 const handleResetContacts = state => {
   state.items = [];
   state.isLoading = false;
   state.error = null;
 };
-
-// const actions = [fetchContacts, addContact, deleteContact];
 
 const initialState = {
   items: [],
@@ -59,8 +32,47 @@ const contactsSlice = createSlice({
           state.error = null;
         }
       );
+    },
+  });
+  
+  export const contactsReducer = contactsSlice.reducer;
+  
+    // === without RTK Query ===
 
-    // === without RTK Query
+  // const handleFetchContacts = (state, action) => {
+  //   state.items = action.payload;
+  // };
+
+  // const handleAddContacts = (state, action) => {
+  //   state.items.push(action.payload);
+  // };
+
+  // const handleDeleteContacts = (state, action) => {
+  //   const idx = state.items.findIndex(({ id }) => id === action.payload.id);
+  //   state.items.splice(idx, 1);
+  // };
+
+  // const handlePending = state => {
+  //   state.isLoading = true;
+  // };
+
+  // const handleFulfilled = state => {
+  //   state.isLoading = false;
+  //   state.error = null;
+  // };
+
+  // const handleRejected = (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = action.payload;
+  // };
+
+  
+  // const actions = [fetchContacts, addContact, deleteContact];
+
+  // const contactsSlice = createSlice({
+  //   name: 'contacts',
+  //   initialState,
+  //   extraReducers: builder => {
     //  builder
     //     .addCase(fetchContacts.fulfilled, handleFetchContacts)
     //     .addCase(addContact.fulfilled, handleAddContacts)
@@ -78,7 +90,5 @@ const contactsSlice = createSlice({
     //       isAnyOf(...actions.map(action => action.rejected)),
     //       handleRejected
     //     ),
-  },
-});
-
-export const contactsReducer = contactsSlice.reducer;
+  // });
+  // export const contactsReducer = contactsSlice.reducer;
